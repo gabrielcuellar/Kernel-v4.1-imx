@@ -1,0 +1,137 @@
+/*
+ * Copyright 2016, 2017 Digi International, Inc.
+ *
+ * The code contained herein is licensed under the GNU General Public
+ * License. You may obtain a copy of the GNU General Public License
+ * Version 2 or later at the following locations:
+ *
+ * http://www.opensource.org/licenses/gpl-license.html
+ * http://www.gnu.org/copyleft/gpl.html
+ */
+
+/dts-v1/;
+#include <dt-bindings/input/input.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+/* i.MX6 UltraLite CPU */
+#include "imx6ul.dtsi"
+/* ConnectCore 6UL (wireless/bluetooth variant) */
+#include "imx6ul-ccimx6ul-wb.dtsi"
+/* ConnectCore 6UL StarterBoard */
+#include "imx6ul-ccimx6ulstarter.dtsi"
+
+&caam_keyblob {
+	status = "okay";
+};
+
+/* ECSPI3 */
+&ecspi3 {
+	status = "okay";
+
+	spidev@0 {
+		reg = <0>;
+		compatible = "spidev";
+		spi-max-frequency = <10000000>;
+	};
+	spidev@1 {
+		reg = <1>;
+		compatible = "spidev";
+		spi-max-frequency = <10000000>;
+	};
+	spidev@2 {
+		reg = <2>;
+		compatible = "spidev";
+		spi-max-frequency = <10000000>;
+	};
+};
+/* ECSPI1 */
+&ecspi1 {
+	status = "okay";
+
+	spidev@0 {
+		reg = <0>;
+		compatible = "spidev";
+		spi-max-frequency = <10000000>;
+	};
+};
+
+&fec1 {
+	status = "okay";
+};
+
+/* CAN1 */
+&can1 {
+	status = "okay";
+};
+
+/* I2C2 */
+&i2c2 {
+	status = "okay";
+};
+
+/* UART3 */
+&uart3 {                                                                           
+	status = "okay";                                                       
+};
+
+/* UART5 (Console) */
+&uart5 {
+	status = "okay";
+};
+
+/* UART6 */
+&uart6 {                                                                           
+    status = "okay";                                                       
+};
+
+/* UART7 */
+&uart7 {                                                                           
+   status = "okay";                                                       
+};
+
+/* UART8 */
+&uart8 {                                                                           
+   status = "okay";                                                       
+};
+
+/* PWM3 */
+&pwm3 {
+	status = "okay";
+};
+
+&lcd_backlight {
+	status = "okay";
+};
+
+/* PWM8 */
+&pwm8 {
+	status = "okay";
+};
+
+&usbotg1 {
+	status = "okay";
+};
+
+&usbotg2 {
+	status = "okay";
+};
+
+/* USDHC2 (microSD) */
+&usdhc2 {
+	status = "okay";
+};
+/*
+ * Goodix touch
+ * On the CC6UL SBC, an inconsistent reset sequence makes the
+ * Goodix display's touch controller respond to two I2C
+ * addresses: 0x14 and 0x5D. To make sure the touchscreen
+ * works every time, the touch controller's description must
+ * be duplicated for both addresses. This is why there are two
+ * entries for the Goodix touch.
+ */
+&goodix_touch1 {
+	status = "okay";
+};
+
+&goodix_touch2 {
+	status = "okay";
+};
