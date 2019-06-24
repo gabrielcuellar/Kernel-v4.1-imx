@@ -81,33 +81,15 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_i2c2>;
 	status = "disabled";
-	/*
-	 * On the CC6UL SBC, an inconsistent reset sequence makes the
-	 * Goodix display's touch controller respond to two I2C
-	 * addresses: 0x14 and 0x5D. To make sure the touchscreen
-	 * works every time, the touch controller's description must
-	 * be duplicated for both addresses.
-	 */
-	goodix_touch1: gt911@14 {
-		compatible = "goodix,gt911";
+	goodix_touch: gt911@14 {
+		compatible = "goodix,gt9271";
 		reg = <0x14>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_goodix_touch>;
 		interrupt-parent = <&gpio1>;
 		interrupts = <2 IRQ_TYPE_EDGE_RISING>;
 		irq-gpios = <&gpio1 3 GPIO_ACTIVE_HIGH>;
-		skip-firmware-request;
-		reload-fw-on-resume;
-		status = "disabled";
-	};
-	goodix_touch2: gt911@5D {
-		compatible = "goodix,gt911";
-		reg = <0x5D>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_goodix_touch>;
-		interrupt-parent = <&gpio1>;
-		interrupts = <2 IRQ_TYPE_EDGE_RISING>;
-		irq-gpios = <&gpio1 3 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
 		skip-firmware-request;
 		reload-fw-on-resume;
 		status = "disabled";
@@ -331,8 +313,10 @@
 		pinctrl_goodix_touch: goodixgrp{
 			fsl,pins = <
 				MX6UL_PAD_GPIO1_IO03__GPIO1_IO03	0x1020
+				MX6UL_PAD_GPIO1_IO02__GPIO1_IO02	0x1020
 			>;
 		};
+
 		/* General purpose pinctrl */
 		pinctrl_hog: hoggrp {
 			fsl,pins = <         
@@ -341,7 +325,6 @@
                 MX6UL_PAD_LCD_DATA18__GPIO3_IO23			0x10b0/* EC25_PWR */  
                 MX6UL_PAD_CSI_DATA06__GPIO4_IO27			0x10b0/* LED_AMARILLO */
                 MX6UL_PAD_JTAG_TCK__GPIO1_IO14				0x10b0/* LED_VERDE */
-                MX6UL_PAD_GPIO1_IO02__GPIO1_IO02			0x10b0/* RESET_TOUCH */
                 MX6UL_PAD_LCD_DATA16__GPIO3_IO21			0x10b0/* CTRL_SAM */
 				MX6UL_PAD_GPIO1_IO09__GPIO1_IO09			0x10b0/* BUZZER */
 
