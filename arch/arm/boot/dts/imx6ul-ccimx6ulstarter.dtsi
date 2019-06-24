@@ -78,11 +78,8 @@
 };
 
 &i2c2 {
-	pinctrl-names = "default", "gpio";
+	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_i2c2>;
-	pinctrl-1 = <&pinctrl_i2c2_gpio>;
-	scl-gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
-	sda-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
 	status = "disabled";
 	/*
 	 * On the CC6UL SBC, an inconsistent reset sequence makes the
@@ -118,8 +115,6 @@
 };
 
 &pwm1 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_pwm1>;
 	status = "disabled";
 };
 
