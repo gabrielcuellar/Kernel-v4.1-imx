@@ -211,9 +211,10 @@
     assigned-clocks = <&clks IMX6UL_CLK_SIM_SEL>;
     assigned-clock-parents = <&clks IMX6UL_CLK_SIM_PODF>;
     assigned-clock-rates = <240000000>;
-    port = <1>;
+    pinctrl-assert-gpios = <&gpio1 24 GPIO_ACTIVE_LOW>;
+    port = <0>;
     sven_low_active;
-    status = "disabled";
+	status = "disabled";
 };
 
 &iomuxc {
@@ -329,11 +330,12 @@
 
         pinctrl_sim2_1: sim2grp {
             fsl,pins = <
-                MX6UL_PAD_ENET2_TX_EN__SIM2_PORT0_CLK 			0x11
-                MX6UL_PAD_UART3_RX_DATA__SIM2_PORT0_PD 			0xb808
-                MX6UL_PAD_ENET2_TX_CLK__SIM2_PORT0_RST_B 		0xb810
-                MX6UL_PAD_ENET2_RX_ER__SIM2_PORT0_SVEN 			0xb810
-                MX6UL_PAD_ENET2_TX_DATA1__SIM2_PORT0_TRXD 		0xb811
+                MX6UL_PAD_UART3_RX_DATA__SIM2_PORT0_PD           0xb808
+               	MX6UL_PAD_ENET2_TX_EN__SIM2_PORT0_CLK            0x31
+                MX6UL_PAD_ENET2_TX_CLK__SIM2_PORT0_RST_B         0xb808
+                MX6UL_PAD_ENET2_RX_ER__SIM2_PORT0_SVEN           0xb808
+                MX6UL_PAD_ENET2_TX_DATA1__SIM2_PORT0_TRXD        0xb809
+                MX6UL_PAD_UART3_TX_DATA__GPIO1_IO24              0x3008
             >;
         };
 
