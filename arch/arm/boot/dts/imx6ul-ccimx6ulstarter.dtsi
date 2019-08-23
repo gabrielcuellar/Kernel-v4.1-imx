@@ -327,14 +327,13 @@
 			>;
 		};
 
-        pinctrl_sim2_1: sim2grp-1 {
+        pinctrl_sim2_1: sim2grp {
             fsl,pins = <
                 MX6UL_PAD_ENET2_TX_EN__SIM2_PORT0_CLK 			0x11
                 MX6UL_PAD_UART3_RX_DATA__SIM2_PORT0_PD 			0xb808
                 MX6UL_PAD_ENET2_TX_CLK__SIM2_PORT0_RST_B 		0xb810
                 MX6UL_PAD_ENET2_RX_ER__SIM2_PORT0_SVEN 			0xb810
                 MX6UL_PAD_ENET2_TX_DATA1__SIM2_PORT0_TRXD 		0xb811
-                MX6UL_PAD_JTAG_TCK__SIM2_POWER_FAIL 			0x10b0
             >;
         };
 
