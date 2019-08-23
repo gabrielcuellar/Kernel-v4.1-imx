@@ -149,12 +149,6 @@
 	status = "disabled";
 };
 
-&uart3 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_uart3>;
-	status = "disabled";
-};
-
 /* UART4 */
 &uart4 {
 	status = "disabled";
@@ -276,13 +270,6 @@
 			>;
 		};
 
-       	 	pinctrl_uart3: uart3grp {
-            	fsl,pins = <
-                	MX6UL_PAD_UART3_RX_DATA__UART3_DCE_RX		0x1b0b1
-                	MX6UL_PAD_UART3_TX_DATA__UART3_DCE_TX		0x1b0b1
-            		>;
-        	};
-
 		pinctrl_uart5: uart5grp {
 			fsl,pins = <
 				MX6UL_PAD_UART5_TX_DATA__UART5_DCE_TX			0x1b0b1
@@ -304,24 +291,24 @@
 			>;
 		};
 
-        	pinctrl_uart8: uart8grp {
-            		fsl,pins = <
-                	MX6UL_PAD_LCD_DATA21__UART8_DCE_RX			0x1b0b1
-                	MX6UL_PAD_LCD_DATA20__UART8_DCE_TX			0x1b0b1
-            	>;
-        	};
+        pinctrl_uart8: uart8grp {
+        	fsl,pins = <
+          	MX6UL_PAD_LCD_DATA21__UART8_DCE_RX					0x1b0b1
+           	MX6UL_PAD_LCD_DATA20__UART8_DCE_TX					0x1b0b1
+           	>;
+        };
 		
 		pinctrl_pwm3: pwm3grp {
-            		fsl,pins = <
-                	MX6UL_PAD_GPIO1_IO04__PWM3_OUT				0x110b0
-            		>;
-        	};
+       		fsl,pins = <
+           	MX6UL_PAD_GPIO1_IO04__PWM3_OUT						0x110b0
+       		>;
+       };
 
-        	pinctrl_pwm8: pwm8grp {
-            		fsl,pins = <
-                	MX6UL_PAD_JTAG_TRST_B__PWM8_OUT				0x110b0
-           		>;
-        	};
+       pinctrl_pwm8: pwm8grp {
+       		fsl,pins = <
+           	MX6UL_PAD_JTAG_TRST_B__PWM8_OUT						0x110b0
+       		>;
+       };
 
 		pinctrl_usdhc2: usdhc2grp {
 			fsl,pins = <
@@ -356,9 +343,7 @@
 			fsl,pins = <         
                 	MX6UL_PAD_LCD_DATA19__GPIO3_IO24			0x10b0/* EC25_SIM */        
                 	MX6UL_PAD_LCD_DATA17__GPIO3_IO22			0x10b0/* EC25_RESET */                 
-                	MX6UL_PAD_LCD_DATA18__GPIO3_IO23			0x10b0/* EC25_PWR */  
-                	MX6UL_PAD_CSI_DATA06__GPIO4_IO27			0x10b0/* LED_AMARILLO */
-                	MX6UL_PAD_JTAG_TCK__GPIO1_IO14				0x10b0/* LED_VERDE */
+                	MX6UL_PAD_LCD_DATA18__GPIO3_IO23			0x10b0/* EC25_PWR */
                 	MX6UL_PAD_GPIO1_IO02__GPIO1_IO02			0x10b0/* RESET_TOUCH */
                 	MX6UL_PAD_LCD_DATA16__GPIO3_IO21			0x10b0/* CTRL_SAM */
 					MX6UL_PAD_GPIO1_IO09__GPIO1_IO09			0x10b0/* BUZZER */

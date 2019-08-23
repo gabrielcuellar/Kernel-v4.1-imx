@@ -68,11 +68,6 @@
 	status = "okay";
 };
 
-/* UART3 */
-&uart3 {                                                                           
-	status = "okay";                                                       
-};
-
 /* UART5 (Console) */
 &uart5 {
 	status = "okay";
