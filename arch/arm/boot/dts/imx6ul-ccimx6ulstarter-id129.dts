@@ -114,6 +114,10 @@
 &usdhc2 {
 	status = "okay";
 };
+
+&sim2 {
+    status = "okay";
+};
 /*
  * Goodix touch
  * On the CC6UL SBC, an inconsistent reset sequence makes the
