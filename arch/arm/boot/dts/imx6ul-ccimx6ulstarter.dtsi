@@ -149,6 +149,11 @@
 	status = "disabled";
 };
 
+/* UART 3 */
+&uart3 {
+	status = "disabled";
+};
+
 /* UART4 */
 &uart4 {
 	status = "disabled";
@@ -212,7 +217,7 @@
     assigned-clock-parents = <&clks IMX6UL_CLK_SIM_PODF>;
     assigned-clock-rates = <240000000>;
     pinctrl-assert-gpios = <&gpio1 24 GPIO_ACTIVE_LOW>;
-    port = <1>;
+    port = <0>;
     sven_low_active;
 	status = "disabled";
 };
