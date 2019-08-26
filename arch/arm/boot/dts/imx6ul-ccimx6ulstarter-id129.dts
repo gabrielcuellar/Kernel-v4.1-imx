@@ -32,17 +32,20 @@
 		compatible = "spidev";
 		spi-max-frequency = <10000000>;
 	};
+
 	spidev@1 {
 		reg = <1>;
 		compatible = "spidev";
 		spi-max-frequency = <10000000>;
 	};
+
 	spidev@2 {
 		reg = <2>;
 		compatible = "spidev";
 		spi-max-frequency = <10000000>;
 	};
 };
+
 /* ECSPI1 */
 &ecspi1 {
 	status = "okay";
@@ -102,10 +105,12 @@
 	status = "okay";
 };
 
+/* USB 1 */
 &usbotg1 {
 	status = "okay";
 };
 
+/* USB 2 */
 &usbotg2 {
 	status = "okay";
 };
@@ -115,22 +120,17 @@
 	status = "okay";
 };
 
+/* SmartCard */
 &sim2 {
     status = "okay";
 };
-/*
- * Goodix touch
- * On the CC6UL SBC, an inconsistent reset sequence makes the
- * Goodix display's touch controller respond to two I2C
- * addresses: 0x14 and 0x5D. To make sure the touchscreen
- * works every time, the touch controller's description must
- * be duplicated for both addresses. This is why there are two
- * entries for the Goodix touch.
- */
+
+/* Tactil 0x14 */
 &goodix_touch1 {
 	status = "okay";
 };
 
+/* Tactil 0x5D */
 &goodix_touch2 {
 	status = "okay";
 };
