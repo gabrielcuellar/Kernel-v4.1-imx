@@ -1071,18 +1071,6 @@ static int sim_card_eject(struct sim_t *sim)
 	return errval;
 };
 
-static int sim_check_baud_rate(sim_baud_t *baud_rate)
-{
-	/*
-	 * The valid value is decribed in the 8.3.3.1 in EMV 4.3
-	 */
-	if (baud_rate->fi == 1 && (baud_rate->di == 1 ||
-					baud_rate->di == 2 || baud_rate->di == 3))
-		return 0;
-
-	return -EINVAL;
-}
-
 static int sim_set_baud_rate(struct sim_t *sim)
 {
 	u32 reg_data;
@@ -1098,6 +1086,18 @@ static int sim_set_baud_rate(struct sim_t *sim)
 		break;
 	case 3:
 		reg_data |= SIM_CNTL_BAUD_SEL(2);
+		break;
+	case 4:
+		reg_data |= SIM_CNTL_BAUD_SEL(3);
+		break;
+	case 5:
+		reg_data |= SIM_CNTL_BAUD_SEL(4);
+		break;
+	case 6:
+		reg_data |= SIM_CNTL_BAUD_SEL(5);
+		break;
+	case 7:
+		reg_data |= SIM_CNTL_BAUD_SEL(6);
 		break;
 	default:
 		pr_err("Invalid baud Di, Using default 372 / 1\n");
@@ -1588,8 +1588,6 @@ copy_data:
 			errval = ret;
 			break;
 		}
-
-		sim_check_baud_rate(&sim->baud_rate);
 
 		break;
 	case SIM_IOCTL_WAIT:
