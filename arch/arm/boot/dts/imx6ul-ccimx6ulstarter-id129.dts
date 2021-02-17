@@ -19,6 +19,11 @@
 /* ConnectCore 6UL StarterBoard */
 #include "imx6ul-ccimx6ulstarter.dtsi"
 
+&mca_adc {
+	digi,adc-ch-list = <0 4>;
+	digi,adc-vref = <3000000>;
+};
+
 &caam_keyblob {
 	status = "okay";
 };
